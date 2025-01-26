@@ -210,9 +210,9 @@ async def perform_action(action, token_type, deposit_amount, min_amount, private
                 print(Fore.RED + f"Max retries reached. Failed to perform {action}.")
 
 def read_private_keys():
-    """Read private keys from private_keys.txt"""
+    """Read private keys from keys.txt"""
     try:
-        with open('private_keys.txt', 'r') as file:
+        with open('keys.txt', 'r') as file:
             keys = [key.strip() for key in file if key.strip()]
 
         # Validate private key length
@@ -223,7 +223,7 @@ def read_private_keys():
         return keys
     
     except Exception as error:
-        print(Fore.RED + f'Error reading private_keys.txt: {error}')
+        print(Fore.RED + f'Error reading keys.txt: {error}')
         exit(1)
 
 async def process_wallets():
@@ -312,8 +312,8 @@ if __name__ == "__main__":
 
         # Verify required configuration files exist
         import os
-        if not os.path.exists('private_keys.txt'):
-            raise FileNotFoundError("private_keys.txt is missing. Please create the file with your wallet private keys.")
+        if not os.path.exists('keys.txt'):
+            raise FileNotFoundError("keys.txt is missing. Please create the file with your wallet private keys.")
 
         # Print startup message
         print(Fore.GREEN + "Starting Plaza Finance Auto Bot...")
