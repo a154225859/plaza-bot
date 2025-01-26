@@ -117,7 +117,7 @@ async def claim_faucet(address):
         )
         
         print(Fore.GREEN + f"Faucet claim initiated successfully for {address}")
-        print(Fore.YELLOW + f"Claim Response: {response.json()}")
+        print(Fore.YELLOW + f"Claim Response: {response.text}")
     
     except requests.exceptions.HTTPError as error:
         if error.response.status_code == 429:
